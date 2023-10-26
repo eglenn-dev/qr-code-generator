@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Roboto Mono', monospace;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+#center {
+    grid-column: 2/3;
+    height: 100%;
+}
+
+#center h1 {
+    margin-top: 100px;
+    font-size: 3em;
+    text-align: center;
+}
+
+#center p {
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section a {
+    color: #ffffff;
+    text-decoration: underline #ffffff 1px;
+    text-underline-offset: 2px;
+    transition: all 0.1s;
+}
+
+section a:hover {
+    color: #9a9a9a;
+    text-decoration: underline #9a9a9a 1px;
+    text-underline-offset: 1px;
+}
+
+#settings-form {
+    grid-column: 2/3;
+    justify-self: center;
+}
+
+.input-text {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+#submit-button {
+    background-color: transparent;
+    color: #ffffff;
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff80;
+}
+
+#submit-button:hover {
+    color: #ffffff;
+}
+
+button {
+    padding: 10px;
+    margin: 10px auto;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff80;
+    text-shadow: none;
+    background: transparent;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+    margin: 0 auto;
+}
+
+button:hover {
+    color: #ffffff;
+    background: #008cff;
+    border: 1px solid #008cff;
+    text-shadow: 0 0 5px #ffffff,
+        0 0 10px #ffffff,
+        0 0 20px #ffffff;
+    box-shadow: 0 0 5px #008cff,
+        0 0 20px #008cff,
+        0 0 50px #008cff,
+        0 0 100px #008cff;
+}
+
+#get-started {
+    grid-column: 2/3;
+    justify-self: center;
+}
+
+.btn svg {
+    transition: transform 0.5s;
+}
+
+.btn:hover svg {
+    transform: scale(0.9);
+    fill: #333333;
+}
+
+#img {
+    grid-column: 2/3;
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px 5px #9a9a9a;
+}
+
+#download-button {
+    grid-column: 2/3;
+    margin: 0;
+    justify-items: center;
+    align-items: center;
+    display: flex;
+}
+
+#download-button a {
+    margin: 10px auto;
+}
+
+footer {
+    grid-column: 2/3;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px;
+    font-size: 0.8em;
+}
+
+footer a p {
+    color: #ffffff;
+    text-decoration: underline #ffffff 1px;
+    text-underline-offset: 2px;
+}
