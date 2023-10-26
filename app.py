@@ -20,10 +20,10 @@ def qr_img():
 if __name__ == '__main__':
     # Runs the app on default port and on broadcasts on all channels.
     # This is done for the live deployment versions of the app. 
-    # app.run(port=5000, host='0.0.0.0')
+    app.run(port=5000, host='0.0.0.0')
 
     # Runs the app on the local server 127.0.0.1:5001
-    app.run(port=5001, debug=True)
+    # app.run(port=5001, debug=True)
 
     # Also for debugging purposes
     # app.run(debug=True)
