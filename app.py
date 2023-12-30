@@ -14,8 +14,15 @@ def qr():
 
 @app.route('/qr-img', methods=['POST'])
 def qr_img():
-    qr_code_filepath = make_qr_code(url=request.form['urlInput'], scale=request.form['scale'], background=request.form['backgroundColor'], code_color=request.form['codeColor'], border_color=request.form['borderColor'])
-    return render_template('qr-img.html', qr_code_img_path=qr_code_filepath)
+    try:
+        qr_code_filepath = make_qr_code(url=request.form['urlInput'], scale=request.form['scale'], background=request.form['backgroundColor'], code_color=request.form['codeColor'], border_color=request.form['borderColor'])
+        return render_template('qr-img.html', qr_code_img_path=qr_code_filepath)
+    except:
+        return render_template('error.html')
+
+@app.route('/<short_url>')
+def page_not_found(short_url):
+    return render_template('404.html', short_url=short_url)
 
 if __name__ == '__main__':
     # Runs the app on default port and on broadcasts on all channels.
