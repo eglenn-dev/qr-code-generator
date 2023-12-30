@@ -1,4 +1,3 @@
-# https://realpython.com/python-generate-qr-code/#creating-animated-qr-codes
 import segno
 from datetime import datetime
 
@@ -10,22 +9,22 @@ def main():
     make_qr_code(url)
 
 
-def make_qr_code(url, scale=8, border_color='#FFFFFF', code_color='#000000', background_color='#FFFFFF'):
+def make_qr_code(url, scale=8, background='#FFFFFF', code_color='#000000', border_color=None):
+    if border_color is None:
+        border_color = background
 
-    file_name = "static/qr-code_" + get_current_time() + ".png"
+    file_name_path = "static/generated/qr-code_" + get_current_time() + ".png"
 
     img = segno.make_qr(url)
     img.save(
-        file_name,
-        scale=scale,
+        file_name_path, # Name and path of the file
+        scale=scale, # Scale factor for size of the image
+        light=background, # General background color for the qr code
+        dark=code_color, # Color of the data of the qr code
+        quiet_zone=border_color # Color of the border. All space around the qr code.
     )
-    # img.save(
-    #     file_name,
-    #     scale=scale,
-    #     light=background_color,
-    #     dark=code_color
-    # )
-    return file_name
+
+    return file_name_path
 
 def get_current_time():
     now = datetime.now()
@@ -34,7 +33,7 @@ def get_current_time():
     hour = str(now.hour).zfill(2)
     minute = str(now.minute).zfill(2)
     second = str(now.second).zfill(2)
-    return month + day + hour + minute + second
+    return month + month + day + hour + minute + second
 
 if __name__ == '__main__':
     main()
