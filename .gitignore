@@ -1,5 +1,6 @@
 # Ignore all img files that are generated
 qr-code_*.png
 
-# pycache
-.__pycache__/
+# Ignore
+__pycache__
+.pytest_cache
