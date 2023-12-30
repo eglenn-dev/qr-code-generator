@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF - QR Code Generator</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='whale.webp') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='qr.css') }}">
+</head>
+
+<body>
+    <section id="center">
+        <h1>QR Code Generator - GIF</h1>
+    </section>
+    <section id="settings-form">
+        <form action="/qr-gif-img" class="form__group field" method="post" enctype="multipart/form-data">
+            <label for="urlInput">URL:</label>
+            <input type="text" class="input-text" id="urlInput" name="urlInput" placeholder="Enter URL" required><br><br>
+            
+            <label for="urlGifInput">GIF URL:</label>
+            <input type="text" class="input-text" id="urlGifInput" name="urlGifInput" placeholder="Enter GIF URL" required><br><br>
+
+            <label style="margin-top: 50px;" for="sliderInput">Scale Size:</label>
+            <input type="range" id="scale" name="scale" min="5" max="20" step="1"><br><br>
+
+            <label for="hexcodeInput">Border Color:</label>
+            <input type="text" class="input-text" id="borderColor" name="borderColor" placeholder="#FFFFFF"
+                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
+
+            <label for="hexcodeInput">Code Color</label>
+            <input type="text" class="input-text" id="codeColor" name="codeColor" placeholder="#FFFFFF"
+                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
+
+            <label for="hexcodeInput">Background Color</label>
+            <input type="text" class="input-text" id="backgroundColor" name="backgroundColor" placeholder="#FFFFFF"
+                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
+
+            <button>
+                <input id="submit-button" name="generate" type="submit" value="Generate">
+            </button>
+        </form>
+    </section>
+    <footer>
+        <a href="https://eglenn.dev" target="_blank">
+            <p>Copyright &copy; Ethan Glenn 2023</p>
+        </a>
+    </footer>
+</body>
+
+</html>
