@@ -9,9 +9,15 @@ def main():
     make_qr_code(url)
 
 
-def make_qr_code(url, scale=8, background='#FFFFFF', code_color='#000000', border_color=None):
-    if border_color is None:
-        border_color = background
+def make_qr_code(url, scale, background, code_color, border_color):
+    if scale == '' or scale == '0' or scale == 0:
+        scale = 8
+    if background == '' or background == '#':
+        background = '#FFFFFF'
+    if code_color == '' or code_color == '#':
+        code_color = '#000000'
+    if border_color == '' or border_color == '#':
+        border_color = '#FFFFFF'
 
     file_name_path = "static/generated/qr-code_" + get_current_time() + ".png"
 
