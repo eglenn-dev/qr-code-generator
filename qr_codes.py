@@ -1,12 +1,21 @@
 import segno
 from datetime import datetime
+from urllib.request import urlopen
+import shutil
 
 IMAGE_OUTPUT_PATH = 'static/generated/'
 
 def main():
-    # Main function for testing.
-    url = 'https://eglenn.app'
-    make_qr_code(url)
+    # url = 'https://eglenn.app'
+    # make_qr_code(url)
+
+    make_gif_qr_code(
+        url='https://eglenn.app',
+        scale=8,
+        background='#FFFFFF',
+        code_color='#000000',
+        gif_url='https://media.giphy.com/media/LpwBqCorPvZC0/giphy.gif'
+    )
 
 def make_qr_code(url, scale='', background='', code_color='', border_color=''):
     # If the default values were used, then set them to a standard black and white colors for the QR code.
@@ -36,6 +45,46 @@ def make_qr_code(url, scale='', background='', code_color='', border_color=''):
     
     # Return the image file path as a string
     return file_name_path
+
+def make_gif_qr_code(url, scale='', background='', code_color='', border_color='', gif_url=''):
+    # If the default values were used, then set them to a standard black and white colors for the QR code.
+    if scale == '' or scale == '0' or scale == 0:
+        scale = 5
+    if background == '' or background == '#':
+        background = '#FFFFFF'
+    if code_color == '' or code_color == '#':
+        code_color = '#000000'
+    if border_color == '' or border_color == '#':
+        # Use the background color if the border color is not specified
+        border_color = background
+    # if gif_url == '':
+        # raise Exception("GIF URL not given reference")
+
+    # Creating the file path with the name
+    file_name_path = f'qr-code_{get_current_time()}.gif'
+
+    # Opening the gif url
+    user_gif = urlopen(gif_url)
+
+    # Generate the qr code data to the img object
+    img = segno.make_qr(url)
+
+    # Adding the customizations from the user
+    img.to_artistic(
+        background=user_gif,
+        target=file_name_path,
+        scale=scale,
+    )
+
+    # Specify the file path and the destination subfolder
+    file_path = file_name_path
+    destination_folder = f'static/generated/{file_name_path}'
+
+    # Use shutil.move() to move the file
+    shutil.move(file_path, destination_folder)
+        
+    # Return the image file path as a string
+    return f'static/generated/{file_name_path}'
 
 def get_current_time():
     now = datetime.now()
