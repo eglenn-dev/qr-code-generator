@@ -1,5 +1,5 @@
 # Ignore all img files that are generated
-*.png
+qr-code_*.png
 
 # pycache
 .__pycache__/
