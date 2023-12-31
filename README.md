@@ -10,5 +10,5 @@ View a breakdown of all function in the project [here](./docs/functions.md).
 ## Getting Started
 ### 1. Install required libraries
     pip install -r requirements.txt
-###3 2. Run the app file
+### 2. Run the app file
     app.py
