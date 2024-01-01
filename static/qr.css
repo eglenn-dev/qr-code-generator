@@ -73,6 +73,7 @@ section a:hover {
     font-size: 17px;
     font-weight: 500;
     color: #ffffff80;
+    text-transform: uppercase;
 }
 
 #submit-button:hover {
