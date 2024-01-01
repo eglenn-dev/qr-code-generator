@@ -20,6 +20,19 @@ body {
     height: 100%;
 }
 
+p a {
+    color: #ffffff;
+    text-decoration: underline #ffffff 2px;
+    text-underline-offset: 2px;
+    transition: all 0.1s;
+}
+
+p a:hover {
+    color: #9a9a9a;
+    text-decoration: underline #9a9a9a 1px;
+    text-underline-offset: 1px;
+}
+
 #center h1 {
     margin-top: 100px;
     font-size: 3em;
