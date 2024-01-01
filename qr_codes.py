@@ -1,7 +1,6 @@
 import segno
 from datetime import datetime
 from urllib.request import urlopen
-import shutil
 
 IMAGE_OUTPUT_PATH = 'static/generated/'
 
@@ -61,7 +60,7 @@ def make_gif_qr_code(url, scale='', background='', code_color='', border_color='
         # raise Exception("GIF URL not given reference")
 
     # Creating the file path with the name
-    file_name_path = f'qr-code_{get_current_time()}.gif'
+    file_name_path = f'{IMAGE_OUTPUT_PATH}qr-code_{get_current_time()}.gif'
 
     # Opening the gif url
     user_gif = urlopen(gif_url)
@@ -76,15 +75,7 @@ def make_gif_qr_code(url, scale='', background='', code_color='', border_color='
         scale=scale,
     )
 
-    # Specify the file path and the destination subfolder
-    file_path = file_name_path
-    destination_folder = f'static/generated/{file_name_path}'
-
-    # Use shutil.move() to move the file
-    shutil.move(file_path, destination_folder)
-        
-    # Return the image file path as a string
-    return f'static/generated/{file_name_path}'
+    return file_name_path
 
 def get_current_time():
     now = datetime.now()
@@ -94,7 +85,7 @@ def get_current_time():
     minute = str(now.minute).zfill(2)
     second = str(now.second).zfill(2)
     # Returning the current date and time
-    return f'{month}-{day}-{hour}:{minute}:{second}'
+    return f'{month}{day}-{hour}{minute}{second}'
 
 if __name__ == '__main__':
     main()
