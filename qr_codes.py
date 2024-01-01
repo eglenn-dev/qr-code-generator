@@ -45,7 +45,7 @@ def get_current_time():
     minute = str(now.minute).zfill(2)
     second = str(now.second).zfill(2)
     # Returning the current date and time
-    return f'{month}-{day}-{hour}:{minute}:{second}'
+    return f'{month}{day}-{hour}{minute}{second}'
 
 if __name__ == '__main__':
     main()
