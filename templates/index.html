@@ -12,8 +12,7 @@
 <body>
     <section id="center">
         <h1>QR Code Generator</h1>
-        <p>This is a simple QR code generator project by <a target="_blank"
-                href="https://eglenn.dev">Ethan
+        <p>This is a simple QR code generator project by <a target="_blank" href="https://eglenn.dev">Ethan
                 Glenn</a>.</p>
         <p>This project primarily serves as a feasibility demonstration.</p>
     </section>
@@ -30,9 +29,15 @@
     </a>
     <footer>
         <a href="https://eglenn.dev" target="_blank">
-            <p>Copyright &copy; Ethan Glenn 2023</p>
+            <p id="cp-footer">Copyright &copy; Ethan Glenn 2023</p>
         </a>
     </footer>
+    <script>
+        const now = new Date();
+        const year = now.getFullYear();
+        footerMessage = document.getElementById('cp-footer');
+        footerMessage.innerHTML = `Copyright &copy; Ethan Glenn ${year}`;
+    </script>
 </body>
 
 </html>

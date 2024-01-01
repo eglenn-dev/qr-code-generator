@@ -12,25 +12,30 @@
 <body>
     <section id="center">
         <h1>QR Code Generator</h1>
-        <p>When customizing the colors, be sure that there is enough contrast between them so device cameras can scan the code.</p>
+        <p>When customizing the colors, be sure that there is enough contrast between them so device cameras can scan
+            the code.</p>
     </section>
     <section id="settings-form">
         <form action="/qr-img" method="post">
             <label for="urlInput">URL:</label>
-            <input type="text" class="input-text" id="urlInput" name="urlInput" placeholder="Enter URL" required><br><br>
-            
+            <input type="text" class="input-text" id="urlInput" name="urlInput" placeholder="Enter URL"
+                required><br><br>
+
             <label for="sliderInput">Scale Size:</label>
             <input type="range" id="scale" name="scale" min="5" max="20" step="1"><br><br>
-            
+
             <label for="hexcodeInput">Border Color:</label>
-            <input type="text" class="input-text" id="borderColor" name="borderColor" placeholder="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
-            
+            <input type="text" class="input-text" id="borderColor" name="borderColor" placeholder="#FFFFFF"
+                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
+
             <label for="hexcodeInput">Code Color</label>
-            <input type="text" class="input-text" id="codeColor" name="codeColor" placeholder="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
-            
+            <input type="text" class="input-text" id="codeColor" name="codeColor" placeholder="#FFFFFF"
+                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
+
             <label for="hexcodeInput">Background Color</label>
-            <input type="text" class="input-text" id="backgroundColor" name="backgroundColor" placeholder="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
-    
+            <input type="text" class="input-text" id="backgroundColor" name="backgroundColor" placeholder="#FFFFFF"
+                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
+
             <button>
                 <input id="submit-button" name="generate" type="submit" value="Generate">
             </button>
@@ -38,9 +43,15 @@
     </section>
     <footer>
         <a href="https://eglenn.dev" target="_blank">
-            <p>Copyright &copy; Ethan Glenn 2023</p>
+            <p id="cp-footer">Copyright &copy; Ethan Glenn 2023</p>
         </a>
     </footer>
+    <script>
+        const now = new Date();
+        const year = now.getFullYear();
+        footerMessage = document.getElementById('cp-footer');
+        footerMessage.innerHTML = `Copyright &copy; Ethan Glenn ${year}`;
+    </script>
 </body>
 
 </html>

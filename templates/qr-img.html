@@ -15,14 +15,20 @@
     </section>
     <img id="img" src="{{ qr_code_img_path }}" alt="Generated QR Code">
     <section id="download-button">
-            <a href="{{ qr_code_img_path }}" download="qr-code.png"><button>Download Image</button></a>
-            <a href="/"><button>Home</button></a>
+        <a href="{{ qr_code_img_path }}" download="qr-code.png"><button>Download Image</button></a>
+        <a href="/"><button>Home</button></a>
     </section>
     <footer>
         <a href="https://eglenn.dev" target="_blank">
-            <p>Copyright &copy; Ethan Glenn 2023</p>
+            <p id="cp-footer">Copyright &copy; Ethan Glenn 2023</p>
         </a>
     </footer>
+    <script>
+        const now = new Date();
+        const year = now.getFullYear();
+        footerMessage = document.getElementById('cp-footer');
+        footerMessage.innerHTML = `Copyright &copy; Ethan Glenn ${year}`;
+    </script>
 </body>
 
 </html>

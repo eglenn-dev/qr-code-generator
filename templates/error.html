@@ -14,12 +14,21 @@
     <h1>There was an Error</h1>
     <p>We are sorry, but we encountered an error while generating your QR code.</p>
     <p>Please make sure that the values were entered correctly, and try again.</p>
-    <p>If this issue persists, please <a target="_blank" href="https://eglenn.dev/contact">contact the developer.</a></p>
+    <p>If this issue persists, please <a target="_blank" href="https://eglenn.dev/contact">contact the developer.</a>
+    </p>
     <a id="get-started" href="/"><button id="btn">Home</button></a>
   </section>
   <footer>
-    <a href="https://eglenn.dev" target="_blank"><p>Copyright &copy; Ethan Glenn 2023</p></a>
-</footer>
+    <a href="https://eglenn.dev" target="_blank">
+      <p id="cp-footer">Copyright &copy; Ethan Glenn 2023</p>
+    </a>
+  </footer>
+  <script>
+    const now = new Date();
+    const year = now.getFullYear();
+    footerMessage = document.getElementById('cp-footer');
+    footerMessage.innerHTML = `Copyright &copy; Ethan Glenn ${year}`;
+  </script>
 </body>
 
 </html>
