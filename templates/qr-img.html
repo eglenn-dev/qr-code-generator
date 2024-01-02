@@ -15,6 +15,7 @@
     </section>
     <img id="img" src="{{ qr_code_img_path }}" alt="Generated QR Code">
     <section id="download-button">
+        <a href="#" id="backButton"><button>Back</button></a>
         <a href="{{ qr_code_img_path }}" download="qr-code.png"><button>Download Image</button></a>
         <a href="/"><button>Home</button></a>
     </section>
@@ -28,6 +29,9 @@
         const year = now.getFullYear();
         footerMessage = document.getElementById('cp-footer');
         footerMessage.innerHTML = `Copyright &copy; Ethan Glenn ${year}`;
+        document.getElementById('backButton').addEventListener('click', function () {
+            window.history.back();
+        });
     </script>
 </body>
 
