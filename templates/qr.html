@@ -7,6 +7,7 @@
     <title>QR Code Generator</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='whale.webp') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='qr.css') }}">
+    <script src="{{ url_for('static', filename='colorPreview.js') }}"></script>
 </head>
 
 <body>
@@ -17,24 +18,27 @@
     </section>
     <section id="settings-form">
         <form action="/qr-img" method="post">
-            <label for="urlInput">URL:</label>
+            <label for="urlInput">URL</label>
             <input type="text" class="input-text" id="urlInput" name="urlInput" placeholder="Enter URL"
                 required><br><br>
 
-            <label for="sliderInput">Scale Size:</label>
+            <label for="sliderInput">Scale Size</label>
             <input type="range" id="scale" name="scale" min="5" max="20" step="1"><br><br>
 
-            <label for="hexcodeInput">Border Color:</label>
-            <input type="text" class="input-text" id="borderColor" name="borderColor" placeholder="#FFFFFF"
-                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
-
+            <label for="hexcodeInput">Border Color</label>
+            <input oninput="updateColorPreview()" type="text" class="input-text" id="borderColor" name="borderColor" placeholder="#FFFFFF"
+               value="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
+            <div id="borderPreview"></div>
+            
             <label for="hexcodeInput">Code Color</label>
-            <input type="text" class="input-text" id="codeColor" name="codeColor" placeholder="#FFFFFF"
-                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
-
+            <input oninput="updateColorPreview()" type="text" class="input-text" id="codeColor" name="codeColor" placeholder="#FFFFFF"
+            value="#000000" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
+            <div id="codePreview"></div>
+            
             <label for="hexcodeInput">Background Color</label>
-            <input type="text" class="input-text" id="backgroundColor" name="backgroundColor" placeholder="#FFFFFF"
-                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"><br><br>
+            <input oninput="updateColorPreview()" type="text" class="input-text" id="backgroundColor" name="backgroundColor" placeholder="#FFFFFF"
+            value="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
+            <div id="backgroundPreview"></div>
 
             <button>
                 <input id="submit-button" name="generate" type="submit" value="Generate">
@@ -47,6 +51,8 @@
         </a>
     </footer>
     <script>
+        updateColorPreview();
+        enforceHashtag();
         const now = new Date();
         const year = now.getFullYear();
         footerMessage = document.getElementById('cp-footer');
