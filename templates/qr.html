@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator</title>
+    <title>QR Code Generator - Form</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='whale.webp') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='qr.css') }}">
     <script src="{{ url_for('static', filename='colorPreview.js') }}"></script>
+    <script src="./static/analytics.js"></script>
 </head>
 
 <body>
@@ -26,18 +27,19 @@
             <input type="range" id="scale" name="scale" min="5" max="20" step="1"><br><br>
 
             <label for="hexcodeInput">Border Color</label>
-            <input oninput="updateColorPreview()" type="text" class="input-text" id="borderColor" name="borderColor" placeholder="#FFFFFF"
-               value="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
+            <input oninput="updateColorPreview()" type="text" class="input-text" id="borderColor" name="borderColor"
+                placeholder="#FFFFFF" value="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
             <div id="borderPreview"></div>
-            
+
             <label for="hexcodeInput">Code Color</label>
-            <input oninput="updateColorPreview()" type="text" class="input-text" id="codeColor" name="codeColor" placeholder="#FFFFFF"
-            value="#000000" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
+            <input oninput="updateColorPreview()" type="text" class="input-text" id="codeColor" name="codeColor"
+                placeholder="#FFFFFF" value="#000000" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
             <div id="codePreview"></div>
-            
+
             <label for="hexcodeInput">Background Color</label>
-            <input oninput="updateColorPreview()" type="text" class="input-text" id="backgroundColor" name="backgroundColor" placeholder="#FFFFFF"
-            value="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
+            <input oninput="updateColorPreview()" type="text" class="input-text" id="backgroundColor"
+                name="backgroundColor" placeholder="#FFFFFF" value="#FFFFFF"
+                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
             <div id="backgroundPreview"></div>
 
             <button>
